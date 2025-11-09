@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+f<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
@@ -26,11 +26,18 @@ body {
 }
 
 body.dark {
-  background: linear-gradient(135deg, #1a0033, #15004d, #000000);
+  background: linear-gradient(135deg,
+    #050012,   
+    #0d0030,   
+    #1a003d,   
+    #22004d,   
+    #0b0024    
+  );
   background-size: 600% 600%;
   animation: gradientShift 15s ease infinite;
   color: #e6edf3;
 }
+
 
 @keyframes gradientShift {
   0% {background-position:0% 50%;}
@@ -256,7 +263,6 @@ body.dark .job-dropdown .job-content { background: rgba(30,30,50,0.7); }
       <li><button class="nav-btn" data-target="skills">Skills</button></li>
       <li><button class="nav-btn" data-target="experience">Experience</button></li>
       <li><button class="nav-btn" data-target="education">Education</button></li>
-      <li><button class="nav-btn" data-target="projects">Projects</button></li>
       <li><button class="nav-btn" data-target="contact">Contact</button></li>
     </ul>
   </nav>
@@ -338,29 +344,16 @@ body.dark .job-dropdown .job-content { background: rgba(30,30,50,0.7); }
     <p> UiTM Kedah</p>
   </section>
 
-  <!-- Projects Section -->
-  <section id="projects" class="panel">
-    <h2>Projects</h2>
-    <div class="cards">
-      <div class="card"><h4>LekorLicious</h4></div>
-      <div class="card"><h4>Portfolio Website</h4></div>
-    </div>
-  </section>
-
   <!-- Contact Section -->
   <section id="contact" class="panel"> 
 
 
    <div class="contact-cards">
     <h2>Contact</h2>
+
      <a href="mailto:afdzalalif905@gmail.com" class="contact-card">
       <i class="fas fa-envelope"></i> Email
      </a>
-
-
-
-
-    
 
       <a href="https://www.facebook.com/afdzal.alias" target="_blank" rel="noopener noreferrer" class="contact-card">
         <i class="fab fa-facebook-f"></i> Facebook
@@ -372,6 +365,10 @@ body.dark .job-dropdown .job-content { background: rgba(30,30,50,0.7); }
 
       <a href="https://www.tiktok.com/@liquidofgold" target="_blank" rel="noopener noreferrer" class="contact-card">
         <i class="fab fa-tiktok"></i> Tiktok
+      </a>
+
+      <a href="https://www.linkedin.com/in/afdzal-alif-bb4b01396/" target="_blank" rel="noopener noreferrer" class="contact-card">
+        <i class="fab fa-tiktok"></i> LinkedIn
       </a>
 
     </div>
