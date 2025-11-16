@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <title>Muhammad Afdzal Alif — Resume</title>
 <style>
 :root {
@@ -50,6 +51,18 @@ body.dark {
 /* Container */
 .container { width: 90%; max-width: var(--container); margin: 0 auto; }
 
+
+/* Body font */
+body {
+    font-family: "Inter", sans-serif;
+}
+
+/* Title fonts */
+h1, h2, h3, h4 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700; /* makes the title cleaner & professional */
+    letter-spacing: 1px; /* optional but looks nicer */
+}
 
 
 /* Header */
@@ -231,7 +244,7 @@ body.dark .site-footer { background: rgba(20,30,40,0.8); color: #e6edf3; }
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: all 0.50s ease;
   padding: 14px;
   border-radius: var(--radius);
   background: rgba(255,255,255,0.1);
@@ -242,14 +255,22 @@ body.dark .job-dropdown .job { background: rgba(40,40,60,0.7); }
 .job-dropdown .job:hover { transform: translateY(-6px); box-shadow:0 16px 40px rgba(0,0,0,0.3); background: rgba(255,255,255,0.15);}
 .job-dropdown .job i { transition: transform 0.3s ease; }
 .job-dropdown .job-content {
-  display: none;
+  max-height: 0;
+  overflow: hidden;
   margin-top: 6px;
-  padding: 12px 16px;
+  padding: 0 16px;
   background: rgba(255,255,255,0.1);
   border-radius: var(--radius);
   box-shadow: inset 0 0 8px rgba(0,0,0,0.2);
+  transition: max-height 0.6s ease, padding 0.4s ease;
 }
 body.dark .job-dropdown .job-content { background: rgba(30,30,50,0.7); }
+
+.job-dropdown .job-content.open {
+  max-height: 400px; /* enough to fit content */
+  padding: 12px 16px;
+}
+
 
 /* Responsive */
 @media(max-width:820px){ 
@@ -309,6 +330,8 @@ body.dark .job-dropdown .job-content { background: rgba(30,30,50,0.7); }
       </article>
     </div>
   </section>
+
+
 <!-- Experience Section -->
 <section id="experience" class="panel">
   <h2>Experience</h2>
@@ -353,8 +376,36 @@ body.dark .job-dropdown .job-content { background: rgba(30,30,50,0.7); }
   <!-- Education Section -->
   <section id="education" class="panel">
     <h2>Education</h2>
-    <p>Diploma in Information Management </p>
-    <p> UiTM Kedah</p>
+    <div class="job-dropdown">
+    <div class="job" onclick="toggleDropdown(this)">
+      <h3> Diploma in Information Management</h3>
+      <i class="fas fa-chevron-down"></i>
+    </div>
+    <div class="job-content">
+      <ul>
+        <li>The Diploma in Information Management has equipped me with essential skills in organizing, managing, and retrieving both physical and digital records. I gained practical experience in database management, web development fundamentals (HTML, CSS, JS, PHP), and the use of key productivity tools such as Microsoft Office. The program also strengthened my understanding of information governance, data security, and proper documentation practices, while improving my communication, problem-solving, and analytical skills through hands-on projects and real workplace exposure. </li>
+
+      </ul>
+    </div>
+  </div>
+
+
+<div class="job-dropdown">
+    <div class="job" onclick="toggleDropdown(this)">
+      <h3> SPM</h3>
+      <i class="fas fa-chevron-down"></i>
+    </div>
+    <div class="job-content">
+      <ul>
+        <li>
+I completed my SPM with a strong academic result, earning 3A, 4B+, and 1C, which gave me a balanced foundation across key subjects. This achievement helped prepare me for higher studies and motivated me to continue improving myself academically, leading me toward pursuing a Diploma in Information Management.
+ </li>
+
+      </ul>
+    </div>
+  </div>
+
+
   </section>
 
 
@@ -426,14 +477,18 @@ function toggleDropdown(element) {
   const content = element.nextElementSibling;
   const icon = element.querySelector('i');
 
-  if(content.style.display === "block"){
-    content.style.display = "none";
+  if (content.classList.contains('open')) {
+    content.classList.remove('open');
     icon.style.transform = "rotate(0deg)";
   } else {
-    content.style.display = "block";
+    document.querySelectorAll('.job-content').forEach(c => c.classList.remove('open'));
+    document.querySelectorAll('.job i').forEach(i => i.style.transform = "rotate(0deg)");
+    content.classList.add('open');
     icon.style.transform = "rotate(180deg)";
   }
 }
+
 </script>
 </body>
 </html>
+
